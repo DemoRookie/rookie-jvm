@@ -4,6 +4,7 @@ type Stack struct {
 	maxSize uint
 	size uint
 	_top *Frame
+	_bottom Frame
 }
 
 func newStack(maxSize uint) *Stack {

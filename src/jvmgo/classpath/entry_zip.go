@@ -3,7 +3,10 @@ package classpath
 import "archive/zip"
 import "errors"
 import "io/ioutil"
-import "path/filepath"
+import (
+	"path/filepath"
+	"fmt"
+)
 
 type ZipEntry struct{
 	absDir string
@@ -18,6 +21,7 @@ func newZipEntry(path string) *ZipEntry {
 }
 
 func (self *ZipEntry) readClass(className string) ([]byte, Entry, error) {
+	fmt.Printf("ZipEntry read : %v\n", className)
 	r,err := zip.OpenReader(self.absDir)
 	if err != nil {
 		return nil, nil, err

@@ -16,6 +16,7 @@ func newCompositeEntry(pathList string) CompositeEntry{
 }
 
 func (self CompositeEntry) readClass(className string) ([]byte, Entry, error) {
+	fmt.Printf("CompositeEntry read : %v\n", className)
 	for _, entry := range self {
 		data, from, err := entry.readClass(className)
 		if err == nil {
